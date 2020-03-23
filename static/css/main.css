@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    font-family: comic sans ms;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 5px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    padding: 5px
+}

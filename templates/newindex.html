@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block head %}
+<title>Num Helper Web Version</title>
+{% endblock %} {% block body %}
+
+
+<h1 style="text-align: center">Num Helper</h1>
+
+<center>
+    <div style="width:100px;height:60px;">
+<form action="/num/bisec" method="POST"><button type="submit" >BiSection Method</button></form><br>
+<form action="/num/newton" method="POST"><button type="submit">Newton's Method</button></form><br>
+<form action="/num/secant" method="POST"><button type="submit">Secant Method</button></form> <br>
+<form action="http://yusufhegazy.com/app/instructions.txt" ><button type="submit">Instructions for usage</button></form>
+</div>
+<br><br><br><br><br><br><br><br><br><br><p>
+<h4>if you find any bugs/problems please tell me on <a href="https://www.facebook.com/yusufthehegazy">Facebook</a></h4>
+</p>
+</center>
+
+{% endblock %}
