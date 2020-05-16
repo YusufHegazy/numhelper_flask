@@ -113,7 +113,7 @@ def calctrapezoid():
 
 
 
-@app.route("/num", methods=["POST","GET"])
+@app.route("/num/", methods=["POST","GET"])
 def index():
     return render_template("newindex.html")
 
