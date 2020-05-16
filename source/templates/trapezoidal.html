@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block head %}
+<title>Composite Trapezoidal Solver</title>
+{% endblock %} {% block body %}
+
+<h1 style="text-align: center">Composite Trapezoidal Solver</h1>
+
+
+<div class="form">
+    <form action="/num/calctrapezoid" method="POST">
+
+        <center>
+            
+            <h4>
+                Equation:
+                <br>
+                <input type="text" name="equation" id="content1"></p>
+                Lower Interval:
+                <br>
+                <input type="text" name="lowerinterval" id="content2"></p>
+                Higher Interval:
+                <br>
+                <input type="text" name="higherinterval" id="content3"></p>
+                n:
+                <br>
+                <input type="text" name="n" id="content4"></p>
+                <br>
+                <h2>{{table|safe}}</h1>
+                
+                
+        
+
+                <input type="submit" value="Calculate" style="width:100px;height:60px;"></p>
+
+                <br>
+    </form>
+    <form action="/num" method="POST"><input type="submit" value="Home" style="width:100px;height:60px;">
+    </form>
+
+        </center>
+    
+    {% endblock %}

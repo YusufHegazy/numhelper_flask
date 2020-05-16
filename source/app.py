@@ -1,13 +1,12 @@
 
 from flask import Flask, render_template, request, url_for
 from tabulate import tabulate
-import math
-
+from math import *
 from methods.bisection import bisection_method
 from methods.secant import secant_method
 from methods.newton import newton_method
 from methods.general import func, dfunc, dfuncsub
-
+from methods.trapezoidal import trapezoidal
 app = Flask(__name__)
 
 btitles = ['i', 'a', 'b', 'xi', 'f(xi)']
@@ -28,6 +27,11 @@ def newtonlander():
 @app.route("/num/secant", methods=["POST","GET"])
 def secantlander():
     return render_template("secant.html")
+
+
+@app.route("/num/trapezoid", methods=["POST","GET"])
+def trapezoidlander():
+    return render_template("trapezoidal.html")
 
 
 @app.route("/num/calcbisec", methods=["POST","GET"])
@@ -70,11 +74,6 @@ def calcnewton():
 #     return render_template('newton.html')
 
 
-
-
-
-
-
 @app.route("/num/calcsecant", methods=["POST","GET"])
 def calcsecant():
     try:
@@ -95,6 +94,22 @@ def calcsecant():
     except:
         return render_template('secant.html')
 
+
+
+
+@app.route("/num/calctrapezoid", methods=["POST","GET"])
+def calctrapezoid():
+    if request.method=="POST" and request.form['equation'] != "" and request.form['lowerinterval'] != "" and request.form['higherinterval'] != "" and request.form['n'] != "":
+        eqn_input = request.form['equation']
+        eqn_input = eqn_input.replace("^","**")
+        lowerinterval = float(request.form['lowerinterval'])
+        higherinterval = float(request.form['higherinterval'])
+        n = int(request.form['n'])
+        res = trapezoidal(eval("lambda x:" + eqn_input), lowerinterval, higherinterval, n)
+    else:
+        return render_template('trapezoidal.html')
+        
+    return render_template('trapezoidal.html', table=res)
 
 
 
