@@ -14,27 +14,27 @@ ntitles = ['i', 'x_i-1', 'x_i' ,'tolerance']
 stitles = ['i', 'x_i-1', 'x_i-2', 'xi', 'tolerance']
 
 
-@app.route("/num/bisec", methods=["POST","GET"])
+@app.route("/bisec", methods=["POST","GET"])
 def biseclander():
     return render_template("bisec.html")
 
 
-@app.route("/num/newton", methods=["POST","GET"])
+@app.route("/newton", methods=["POST","GET"])
 def newtonlander():
     return render_template("newton.html")
 
 
-@app.route("/num/secant", methods=["POST","GET"])
+@app.route("/secant", methods=["POST","GET"])
 def secantlander():
     return render_template("secant.html")
 
 
-@app.route("/num/trapezoid", methods=["POST","GET"])
+@app.route("/trapezoid", methods=["POST","GET"])
 def trapezoidlander():
     return render_template("trapezoidal.html")
 
 
-@app.route("/num/calcbisec", methods=["POST","GET"])
+@app.route("/calcbisec", methods=["POST","GET"])
 def calcbisec():
 #try:
     if request.method=="POST" and request.form['a'] != "" and request.form['b'] != "" and request.form['beqn'] != "" and request.form['btol'] != "" :
@@ -55,7 +55,7 @@ def calcbisec():
 
 
 
-@app.route("/num/calcnewton", methods=["POST","GET"])
+@app.route("/calcnewton", methods=["POST","GET"])
 def calcnewton():
 # try:
     if request.method=="POST" and request.form['x0'] != "" and request.form['neqn'] != "" and request.form['napprox'] != "" :
@@ -74,7 +74,7 @@ def calcnewton():
 #     return render_template('newton.html')
 
 
-@app.route("/num/calcsecant", methods=["POST","GET"])
+@app.route("/calcsecant", methods=["POST","GET"])
 def calcsecant():
     try:
         if request.method=="POST" and request.form['sx0'] != "" and request.form['seqn'] != "" and request.form['sapprox'] != "" and request.form['sx1'] != "":
@@ -97,7 +97,7 @@ def calcsecant():
 
 
 
-@app.route("/num/calctrapezoid", methods=["POST","GET"])
+@app.route("/calctrapezoid", methods=["POST","GET"])
 def calctrapezoid():
     if request.method=="POST" and request.form['equation'] != "" and request.form['lowerinterval'] != "" and request.form['higherinterval'] != "" and request.form['n'] != "":
         eqn_input = request.form['equation']
@@ -113,7 +113,7 @@ def calctrapezoid():
 
 
 
-@app.route("/num", methods=["POST","GET"])
+@app.route("/", methods=["POST","GET"])
 def index():
     return render_template("newindex.html")
 
